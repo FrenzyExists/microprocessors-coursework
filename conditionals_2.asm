@@ -10,16 +10,20 @@ syscall
 move $s0, $v0
 
 ###############################################
-# Convert the given statements into branch instructions
+    # Convert the given statements into branch instructions
 
-# Branch to "b1" if $s0 == 0
+    # Branch to "b1" if $s0 == 0
+    beq $s0, 0, b1
 
-# Branch to "b2" if $s0 != 0
+    # Branch to "b2" if $s0 != 0
+    bne $s0, 0, b2
 
-mid:
-# Branch to "b3" if $s0 > 0
+    mid:
+    # Branch to "b3" if $s0 > 0
+    bgt $s0, 0, b3
 
-# Branch to "b4" if $s0 < 0
+    # Branch to "b4" if $s0 < 0
+    blt $s0, 0, b4
 
 ###############################################
 b1:

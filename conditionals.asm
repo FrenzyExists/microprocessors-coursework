@@ -13,19 +13,25 @@ syscall
 move $s0, $v0
 
 #########################################################
-# Convert the given statements into branch instructions
+    # Convert the given statements into branch instructions
 
-# Branch to "b1" if $s0 == 10
+    # Branch to "b1" if $s0 == 10
+    beq $s0, 10, b1
 
-# Branch to "b2" if $s0 > 15
+    # Branch to "b2" if $s0 > 15
+    bgt $s0, 15, b2
 
-# Branch to "b3" if $s0 < 5
+    # Branch to "b3" if $s0 < 5
+    blt $s0, 5, b3
 
-# Branch to "b4" if $s0 >= 12
+    # Branch to "b4" if $s0 >= 12
+    bge $s0, 12, b4
 
-# Branch to "b5" if $s0 <= 8
+    # Branch to "b5" if $s0 <= 8
+    ble $s0, 8, b5
 
-# Branch to "b6" if $s0 != 11
+    # Branch to "b6" if $s0 != 11
+    bne $s0, 11, b6
 
 #########################################################
 la $a0, estr
