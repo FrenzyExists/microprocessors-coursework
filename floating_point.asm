@@ -19,17 +19,8 @@ swc1 $f0, z
 
 ###############################################
 # Your code here:
-
-# This for some reason doesn't compile
-# l.s $f1, x
-# l.s $f2, y
-
-# s.s $f1, $f1
-# s.s $f2, $f2
-
-
-lwc1 $f2, y
-lwc1 $f4, x
+lwc1 $f1, y
+lwc1 $f2, x
 
 # Using the specifiedd constants
 # You have to initialize them by 
@@ -37,26 +28,26 @@ lwc1 $f4, x
 # em using pointers. Don't ask why it has 
 # to be like that.
 la $t0, 6
-la $t2, 10
-la $t4, 1
+la $t1, 10
+la $t2, 1
 
 mtc1 $t0, $f3   # 6
-mtc1 $t2, $f4   # 10
-mtc1 $t4, $f5   # 1
+mtc1 $t1, $f4   # 10
+mtc1 $t2, $f5   # 1
 
 cvt.s.w $f3,$f3 # 6
 cvt.s.w $f4,$f4 # 10
 cvt.s.w $f5,$f5 # 1
 
-add.s $f1, $f1, $f2  # X = X + Y
+add.s $f2, $f2, $f1  # X = X + Y
 
-mul.s $f1, $f1, $f3  # X = X * 6
+mul.s $f2, $f2, $f3  # X = X * 6
 
 mul.s $f0, $f0, $f4  # Z = Z * 10
 
 sub.s $f0, $f0, $f5  # Z = Z - 1
 
-div.s $f12, $f1, $f0  # X = X / Z
+div.s $f12, $f2, $f0  # X = X / Z
 
 li $v0, 2
 syscall
