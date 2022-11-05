@@ -28,7 +28,7 @@ loop:
 	
 	###############################################
 	# Call subroutine here:
-	
+	jal subroutine
 	
 	###############################################
 	
@@ -56,6 +56,12 @@ syscall
 # Input: $a0 = Character to convert
 # Output: $v0 = Converted character
 # Define subroutine here:
+subroutine:
 
+    move $a0, $t0
+    add $a0, $a0, 1
+    li $v0, 11
+    syscall
+    jr $ra
 
 ###############################################

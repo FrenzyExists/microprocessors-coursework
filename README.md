@@ -29,3 +29,12 @@ X = Positive integers
 Accept user input to perform: X * 10 - 2 and print the result to the console.
 
 X = Positive integers
+
+
+
+Some random notes
+
+So, even tho I'm sleepy here I am
+
+A couple of days ago I had a conversation with an instructor in the TI lab from collegue, and told me about the ironing method for pcb design, which me said its common practice in Colombia in DIY pcb design. Gonna see if I can try it out, I want print my simple multivibrator already
+
