@@ -64,7 +64,8 @@ poppinLoops:
 
     addiu $t4, $t4, -1                              # userInput--
     bgtz $t4, poppinLoops                           # length > 0
-
+        la $a0, w
+        li $v0, 4
     j exit
 
 zeroOut:
