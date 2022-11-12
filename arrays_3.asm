@@ -1,12 +1,10 @@
-# Find the minimum and maximum value within the given array 
-# and print their sum.
-    
-# (When developing the code, review in detail the provided 
-# code, so that you can understand how to do you own tests 
-# to ensure that your added code works as requested)
+# Find the minimum and maximum value within the given array and print their sum.
+
+# (When developing the code, review in detail the provided code, so that you can 
+# understand how to do you own tests to ensure that your added code works as requested)
 
 .data
-array: .word 1,2,5,10,20,25,100,4206
+array: .word 1, 2, 5, 10, 20, 25, 100, 4206
 .text 
 main:
 # Replace first and last value with new number
@@ -18,36 +16,42 @@ mul $t1, $v0, 5
 sw $t1, array($t0)
 
 ###############################################
-# Your code here:
-la $t1, array
-
-li $t2, 0                   # save sum
+# Your code here:3
+la      $t0, array
+li      $t1, 0 
+li      $t2, 7
+lw      $s1, ($t0)
 loop:
-    lw $t3, ($t1)
-    
+	
+    lw      $a0, ($t0)
+	
+	
+	blt     $a0, $s1, smaller
+	bgt		$a0, $s0, bigger
+	
 
-    blt $t4, $t3, lessThan
-    bgt $t5, $t3, greaterThan
-    add $t1, $t1, 4			# Update array address
+	add 	$t1, $t1, 1
+	add 	$t0, $t0, 4
 
-    sub $t0, $t0, 4
+	ble 	$t1, $t2, loop
+	
 
-    bgtz $t0, loop
-
-    j exit
-# Print min + max num
-
-lessThan:
-    la $t4, ($t3)
-    j loop
-
-greaterThan:
-    la $t5, ($t3)
-    j loop
+add     $a0, $s0, $s1
+li      $v0, 1
+syscall
 
 ###############################################
 
-exit:
 # Exit the Program
-li $v0, 10
-syscall
+exit:
+	li $v0, 10
+	syscall
+
+
+smaller:
+	move 	$s1, $a0
+	j 		loop 
+
+bigger:
+	move 	$s0, $a0
+	j 		loop

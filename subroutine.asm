@@ -1,12 +1,3 @@
-# Create a subroutine that does the following:
-
-    Accepts a character as input
-    Increments the character value by 1
-    Prints the character
-#     Returns the new character
-
-# Note: There are two sections in the file where code is required.
-
 .data 
 buffer: .space 	128     # Hold text input
 
@@ -34,7 +25,7 @@ loop:
 	
 	addi $s0, $s0, 1	# Move address to next byte
 	addi $s1, $s1, -1	# Decriment counter
-	add  $s2, $s2, $v0	# total += ascii character value
+	add  $s2, $s2, $a0	# total += ascii character value
 	
 # Jump back up to start of loop if $s1 != 0
 bnez $s1, loop	# End loop
@@ -57,11 +48,8 @@ syscall
 # Output: $v0 = Converted character
 # Define subroutine here:
 subroutine:
-
-    move $a0, $t0
-    add $a0, $a0, 1
-    li $v0, 11
-    syscall
-    jr $ra
-
-###############################################
+	move $a0, $t0
+	add $a0, $a0, 1
+	li $v0, 11
+	syscall
+	jr $ra
